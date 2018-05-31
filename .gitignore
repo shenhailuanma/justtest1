@@ -1,4 +1,2 @@
 *.bcsymbolmap
 Carthage/
-hippo/hippo.xcodeproj/xcuserdata
-hippo/hippo.xcodeproj/project.xcworkspace/xcuserdata/
