@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		34A9C61320C037700057A59C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A9C61220C037700057A59C /* AppDelegate.swift */; };
+		34A9C61520C037700057A59C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A9C61420C037700057A59C /* ViewController.swift */; };
+		34A9C61820C037700057A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A9C61620C037700057A59C /* Main.storyboard */; };
+		34A9C61A20C037710057A59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A9C61920C037710057A59C /* Assets.xcassets */; };
+		34A9C61D20C037710057A59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A9C61B20C037710057A59C /* LaunchScreen.storyboard */; };
+		34A9C62B20C0389B0057A59C /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A9C62A20C0389B0057A59C /* PacketTunnelProvider.swift */; };
+		34A9C63020C0389B0057A59C /* packetTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34A9C62820C0389B0057A59C /* packetTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		34A9C63720C038ED0057A59C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A9C63620C038ED0057A59C /* NetworkExtension.framework */; };
+		34A9C63920C03A0A0057A59C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A9C63620C038ED0057A59C /* NetworkExtension.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34A9C62E20C0389B0057A59C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34A9C60720C037700057A59C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34A9C62720C0389B0057A59C;
+			remoteInfo = packetTunnel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		34A9C63420C0389B0057A59C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				34A9C63020C0389B0057A59C /* packetTunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		34A9C60F20C037700057A59C /* hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A9C61220C037700057A59C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34A9C61420C037700057A59C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		34A9C61720C037700057A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34A9C61920C037710057A59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34A9C61C20C037710057A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34A9C61E20C037710057A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34A9C62820C0389B0057A59C /* packetTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = packetTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A9C62A20C0389B0057A59C /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		34A9C62C20C0389B0057A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34A9C62D20C0389B0057A59C /* packetTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = packetTunnel.entitlements; sourceTree = "<group>"; };
+		34A9C63620C038ED0057A59C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		34A9C63820C038ED0057A59C /* hippo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hippo.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		34A9C60C20C037700057A59C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A9C63720C038ED0057A59C /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34A9C62520C0389B0057A59C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A9C63920C03A0A0057A59C /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34A9C60620C037700057A59C = {
+			isa = PBXGroup;
+			children = (
+				34A9C61120C037700057A59C /* hippo */,
+				34A9C62920C0389B0057A59C /* packetTunnel */,
+				34A9C61020C037700057A59C /* Products */,
+				34A9C63520C038ED0057A59C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		34A9C61020C037700057A59C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34A9C60F20C037700057A59C /* hippo.app */,
+				34A9C62820C0389B0057A59C /* packetTunnel.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34A9C61120C037700057A59C /* hippo */ = {
+			isa = PBXGroup;
+			children = (
+				34A9C63820C038ED0057A59C /* hippo.entitlements */,
+				34A9C61220C037700057A59C /* AppDelegate.swift */,
+				34A9C61420C037700057A59C /* ViewController.swift */,
+				34A9C61620C037700057A59C /* Main.storyboard */,
+				34A9C61920C037710057A59C /* Assets.xcassets */,
+				34A9C61B20C037710057A59C /* LaunchScreen.storyboard */,
+				34A9C61E20C037710057A59C /* Info.plist */,
+			);
+			path = hippo;
+			sourceTree = "<group>";
+		};
+		34A9C62920C0389B0057A59C /* packetTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				34A9C62A20C0389B0057A59C /* PacketTunnelProvider.swift */,
+				34A9C62C20C0389B0057A59C /* Info.plist */,
+				34A9C62D20C0389B0057A59C /* packetTunnel.entitlements */,
+			);
+			path = packetTunnel;
+			sourceTree = "<group>";
+		};
+		34A9C63520C038ED0057A59C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34A9C63620C038ED0057A59C /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		34A9C60E20C037700057A59C /* hippo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34A9C62120C037710057A59C /* Build configuration list for PBXNativeTarget "hippo" */;
+			buildPhases = (
+				34A9C60B20C037700057A59C /* Sources */,
+				34A9C60C20C037700057A59C /* Frameworks */,
+				34A9C60D20C037700057A59C /* Resources */,
+				34A9C63420C0389B0057A59C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34A9C62F20C0389B0057A59C /* PBXTargetDependency */,
+			);
+			name = hippo;
+			productName = hippo;
+			productReference = 34A9C60F20C037700057A59C /* hippo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		34A9C62720C0389B0057A59C /* packetTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34A9C63120C0389B0057A59C /* Build configuration list for PBXNativeTarget "packetTunnel" */;
+			buildPhases = (
+				34A9C62420C0389B0057A59C /* Sources */,
+				34A9C62520C0389B0057A59C /* Frameworks */,
+				34A9C62620C0389B0057A59C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = packetTunnel;
+			productName = packetTunnel;
+			productReference = 34A9C62820C0389B0057A59C /* packetTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		34A9C60720C037700057A59C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "张旭";
+				TargetAttributes = {
+					34A9C60E20C037700057A59C = {
+						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
+					};
+					34A9C62720C0389B0057A59C = {
+						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 34A9C60A20C037700057A59C /* Build configuration list for PBXProject "hippo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 34A9C60620C037700057A59C;
+			productRefGroup = 34A9C61020C037700057A59C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				34A9C60E20C037700057A59C /* hippo */,
+				34A9C62720C0389B0057A59C /* packetTunnel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		34A9C60D20C037700057A59C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A9C61D20C037710057A59C /* LaunchScreen.storyboard in Resources */,
+				34A9C61A20C037710057A59C /* Assets.xcassets in Resources */,
+				34A9C61820C037700057A59C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34A9C62620C0389B0057A59C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		34A9C60B20C037700057A59C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A9C61520C037700057A59C /* ViewController.swift in Sources */,
+				34A9C61320C037700057A59C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34A9C62420C0389B0057A59C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34A9C62B20C0389B0057A59C /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		34A9C62F20C0389B0057A59C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34A9C62720C0389B0057A59C /* packetTunnel */;
+			targetProxy = 34A9C62E20C0389B0057A59C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		34A9C61620C037700057A59C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34A9C61720C037700057A59C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		34A9C61B20C037710057A59C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34A9C61C20C037710057A59C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		34A9C61F20C037710057A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		34A9C62020C037710057A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		34A9C62220C037710057A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = hippo/hippo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RNX29B3ME4;
+				INFOPLIST_FILE = hippo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zx.hippo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34A9C62320C037710057A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = hippo/hippo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RNX29B3ME4;
+				INFOPLIST_FILE = hippo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zx.hippo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		34A9C63220C0389B0057A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = packetTunnel/packetTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RNX29B3ME4;
+				INFOPLIST_FILE = packetTunnel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zx.hippo.packetTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34A9C63320C0389B0057A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = packetTunnel/packetTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RNX29B3ME4;
+				INFOPLIST_FILE = packetTunnel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zx.hippo.packetTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		34A9C60A20C037700057A59C /* Build configuration list for PBXProject "hippo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34A9C61F20C037710057A59C /* Debug */,
+				34A9C62020C037710057A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34A9C62120C037710057A59C /* Build configuration list for PBXNativeTarget "hippo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34A9C62220C037710057A59C /* Debug */,
+				34A9C62320C037710057A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34A9C63120C0389B0057A59C /* Build configuration list for PBXNativeTarget "packetTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34A9C63220C0389B0057A59C /* Debug */,
+				34A9C63320C0389B0057A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 34A9C60720C037700057A59C /* Project object */;
+}
