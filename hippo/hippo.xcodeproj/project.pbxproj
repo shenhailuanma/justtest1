@@ -84,6 +84,7 @@
 		34A9C65520C04F700057A59C /* tun2socks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tun2socks.framework; path = ../Carthage/Build/iOS/tun2socks.framework; sourceTree = "<group>"; };
 		34A9C65620C04F700057A59C /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = ../Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
 		34A9C65720C04F700057A59C /* Resolver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Resolver.framework; path = ../Carthage/Build/iOS/Resolver.framework; sourceTree = "<group>"; };
+		34A9C66020C190F50057A59C /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Frameworks/iphoneos/CommonCrypto.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +169,7 @@
 		34A9C63520C038ED0057A59C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34A9C66020C190F50057A59C /* CommonCrypto.framework */,
 				34A9C65220C04F6F0057A59C /* CocoaAsyncSocket.framework */,
 				34A9C65620C04F700057A59C /* CocoaLumberjack.framework */,
 				34A9C65420C04F700057A59C /* lwip.framework */,
@@ -258,7 +260,6 @@
 				34A9C62420C0389B0057A59C /* Sources */,
 				34A9C62520C0389B0057A59C /* Frameworks */,
 				34A9C62620C0389B0057A59C /* Resources */,
-				34A9C65F20C04FE70057A59C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -345,22 +346,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		34A9C65F20C04FE70057A59C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34A9C60B20C037700057A59C /* Sources */ = {
@@ -578,6 +563,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Frameworks/iphoneos",
 				);
 				INFOPLIST_FILE = packetTunnel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -603,6 +589,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Frameworks/iphoneos",
 				);
 				INFOPLIST_FILE = packetTunnel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

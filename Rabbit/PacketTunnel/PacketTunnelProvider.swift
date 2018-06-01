@@ -1,9 +1,9 @@
 //
 //  PacketTunnelProvider.swift
-//  packetTunnel
+//  PacketTunnel
 //
-//  Created by 张旭 on 2018/5/31.
-//  Copyright © 2018 张旭. All rights reserved.
+//  Created by 称一称 on 2016/11/18.
+//  Copyright © 2016年 yicheng. All rights reserved.
 //
 
 import NetworkExtension
@@ -23,10 +23,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     var lastPath:NWPath?
     
     var started:Bool = false
-    
 
-    override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
-        
+	override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
+        DDLog.removeAllLoggers()
+        DDLog.add(DDASLLogger.sharedInstance, with: DDLogLevel.info)
+        ObserverFactory.currentFactory = DebugObserverFactory()
         NSLog("-------------")
         
         guard let conf = (protocolConfiguration as! NETunnelProviderProtocol).providerConfiguration else{
@@ -41,8 +42,15 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let ss_port = conf["ss_port"] as! Int
         let method = conf["ss_method"] as! String
         NSLog(method)
-        
+
         let password = conf["ss_password"] as!String
+                
+        // Proxy Adapter
+        
+        
+        // SSR Httpsimple
+//        let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.HTTPProtocolObfuscater.Factory(hosts:["intl.aliyun.com","cdn.aliyun.com"], customHeader:nil)
+        
         
         // Origin
         let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.OriginProtocolObfuscater.Factory()
@@ -56,7 +64,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         case "AES256CFB":algorithm = .AES256CFB
         case "CHACHA20":algorithm = .CHACHA20
         case "SALSA20":algorithm = .SALSA20
-        case "RC4MD5":algorithm = .RC4MD5
+        case "RC4MD5":algorithm = .RC4MD5 
         default:
             fatalError("Undefined algorithm!")
         }
@@ -66,15 +74,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         
         let directAdapterFactory = DirectAdapterFactory()
         
-        
         //Get lists from conf
         let yaml_str = conf["ymal_conf"] as!String
         let value = try! Yaml.load(yaml_str)
         
         var UserRules:[NEKit.Rule] = []
         
-        
-        for each in (value["rule"].array! ) {
+        for each in (value["rule"].array! ){
             let adapter:NEKit.AdapterFactory
             if each["adapter"].string! == "direct"{
                 adapter = directAdapterFactory
@@ -114,13 +120,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 break
             }
         }
+
         
         // Rules
         
         let chinaRule = CountryRule(countryCode: "CN", match: true, adapterFactory: directAdapterFactory)
         let unKnowLoc = CountryRule(countryCode: "--", match: true, adapterFactory: directAdapterFactory)
         let dnsFailRule = DNSFailRule(adapterFactory: ssAdapterFactory)
-        
+     
         let allRule = AllRule(adapterFactory: ssAdapterFactory)
         UserRules.append(contentsOf: [chinaRule,unKnowLoc,dnsFailRule,allRule])
         
@@ -128,16 +135,28 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         
         RuleManager.currentManager = manager
         proxyPort =  9090
-        
-        //        RawSocketFactory.TunnelProvider = self
+
+//        RawSocketFactory.TunnelProvider = self
         
         // the `tunnelRemoteAddress` is meaningless because we are not creating a tunnel.
         let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8")
         networkSettings.mtu = 1500
         
         let ipv4Settings = NEIPv4Settings(addresses: ["192.169.89.1"], subnetMasks: ["255.255.255.0"])
-        
-        networkSettings.ipv4Settings = ipv4Settings
+        if enablePacketProcessing {
+            ipv4Settings.includedRoutes = [NEIPv4Route.default()]
+            ipv4Settings.excludedRoutes = [
+                NEIPv4Route(destinationAddress: "10.0.0.0", subnetMask: "255.0.0.0"),
+                NEIPv4Route(destinationAddress: "100.64.0.0", subnetMask: "255.192.0.0"),
+                NEIPv4Route(destinationAddress: "127.0.0.0", subnetMask: "255.0.0.0"),
+                NEIPv4Route(destinationAddress: "169.254.0.0", subnetMask: "255.255.0.0"),
+                NEIPv4Route(destinationAddress: "172.16.0.0", subnetMask: "255.240.0.0"),
+                NEIPv4Route(destinationAddress: "192.168.0.0", subnetMask: "255.255.0.0"),
+                NEIPv4Route(destinationAddress: "17.0.0.0", subnetMask: "255.0.0.0"),
+
+            ]
+        }
+        networkSettings.iPv4Settings = ipv4Settings
         
         let proxySettings = NEProxySettings()
         proxySettings.httpEnabled = true
@@ -149,6 +168,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         proxySettings.matchDomains = [""]
         proxySettings.exceptionList = ["api.smoot.apple.com","configuration.apple.com","xp.apple.com","smp-device-content.apple.com","guzzoni.apple.com","captive.apple.com","*.ess.apple.com","*.push.apple.com","*.push-apple.com.akadns.net"]
         networkSettings.proxySettings = proxySettings
+        
+        if enablePacketProcessing {
+            let DNSSettings = NEDNSSettings(servers: ["198.18.0.1"])
+            DNSSettings.matchDomains = [""]
+            DNSSettings.matchDomainsNoSearch = false
+            networkSettings.dnsSettings = DNSSettings
+        }
         
         setTunnelNetworkSettings(networkSettings) {
             error in
@@ -197,12 +223,19 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 self.interface.start()
             }
             self.started = true
+
         }
         
     }
     
-    override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
-        // Add code here to start the process of stopping the tunnel.
+
+	override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
+        if enablePacketProcessing {
+            interface.stop()
+            interface = nil
+            DNSServer.currentServer = nil
+        }
+        
         if(proxyServer != nil){
             proxyServer.stop()
             proxyServer = nil
@@ -211,23 +244,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         completionHandler()
         
         exit(EXIT_SUCCESS)
-    }
-    
-    override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?) {
-        // Add code here to handle the message.
-        if let handler = completionHandler {
-            handler(messageData)
-        }
-    }
-    
-    override func sleep(completionHandler: @escaping () -> Void) {
-        // Add code here to get ready to sleep.
-        completionHandler()
-    }
-    
-    override func wake() {
-        // Add code here to wake up.
-    }
+	}
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "defaultPath" {
@@ -247,5 +264,5 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }
         
     }
-    
+
 }
