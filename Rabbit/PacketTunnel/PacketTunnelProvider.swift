@@ -28,7 +28,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         DDLog.removeAllLoggers()
         DDLog.add(DDASLLogger.sharedInstance, with: DDLogLevel.info)
         ObserverFactory.currentFactory = DebugObserverFactory()
-        NSLog("-------------")
+        
+        NSLog("------ startTunnel begin -------")
         
         guard let conf = (protocolConfiguration as! NETunnelProviderProtocol).providerConfiguration else{
             NSLog("[ERROR] No ProtocolConfiguration Found")
@@ -72,6 +73,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         
         let ssAdapterFactory = ShadowsocksAdapterFactory(serverHost: ss_adder, serverPort: ss_port, protocolObfuscaterFactory:obfuscater, cryptorFactory: ShadowsocksAdapter.CryptoStreamProcessor.Factory(password: password, algorithm: algorithm), streamObfuscaterFactory: ShadowsocksAdapter.StreamObfuscater.OriginStreamObfuscater.Factory())
         
+        let httpAuth = HTTPAuthentication(username: "shenhailuanma0512@163.com", password: "zx@19861008")
+        let httpAdapterFactory = SecureHTTPAdapterFactory(serverHost: "pac.stalker.cc", serverPort: 9008, auth: httpAuth)
+       
+        
         let directAdapterFactory = DirectAdapterFactory()
         
         //Get lists from conf
@@ -85,7 +90,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             if each["adapter"].string! == "direct"{
                 adapter = directAdapterFactory
             }else{
-                adapter = ssAdapterFactory
+//                adapter = ssAdapterFactory
+                adapter = httpAdapterFactory
             }
             
             let ruleType = each["type"].string!
@@ -122,20 +128,33 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }
 
         
-        // Rules
+        
+        
+        /** Rules **/
         
         let chinaRule = CountryRule(countryCode: "CN", match: true, adapterFactory: directAdapterFactory)
         let unKnowLoc = CountryRule(countryCode: "--", match: true, adapterFactory: directAdapterFactory)
-        let dnsFailRule = DNSFailRule(adapterFactory: ssAdapterFactory)
+//        let dnsFailRule = DNSFailRule(adapterFactory: ssAdapterFactory)
+        let dnsFailRule = DNSFailRule(adapterFactory: httpAdapterFactory)
      
-        let allRule = AllRule(adapterFactory: ssAdapterFactory)
-        UserRules.append(contentsOf: [chinaRule,unKnowLoc,dnsFailRule,allRule])
+//        let allRule = AllRule(adapterFactory: ssAdapterFactory)
+        let allRule = AllRule(adapterFactory: httpAdapterFactory)
+        
+//        UserRules.append(contentsOf: [chinaRule,unKnowLoc,dnsFailRule,allRule, allRuleHttp])
+//        UserRules.append(contentsOf: [chinaRule,unKnowLoc,dnsFailRule, allRule])
+        UserRules.append(contentsOf: [allRule, dnsFailRule])
         
         let manager = RuleManager(fromRules: UserRules, appendDirect: true)
         
         RuleManager.currentManager = manager
+        
+        
+        
+        
+        
+        /** start a HTTP/SOCKS5 proxy server locally. **/
+        
         proxyPort =  9090
-
 //        RawSocketFactory.TunnelProvider = self
         
         // the `tunnelRemoteAddress` is meaningless because we are not creating a tunnel.
@@ -143,6 +162,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         networkSettings.mtu = 1500
         
         let ipv4Settings = NEIPv4Settings(addresses: ["192.169.89.1"], subnetMasks: ["255.255.255.0"])
+        
+        if enablePacketProcessing {
+            NSLog("enablePacketProcessing is ture.")
+        } else {
+            NSLog("enablePacketProcessing is false.")
+        }
+        
         if enablePacketProcessing {
             ipv4Settings.includedRoutes = [NEIPv4Route.default()]
             ipv4Settings.excludedRoutes = [
@@ -226,6 +252,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
         }
         
+        NSLog("------ startTunnel over -------")
     }
     
 

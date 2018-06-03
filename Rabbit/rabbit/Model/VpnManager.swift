@@ -168,7 +168,7 @@ extension VpnManager{
     
     fileprivate func setRulerConfig(_ manager:NETunnelProviderManager){
         var conf = [String:AnyObject]()
-        conf["ss_address"] = "67.216.200.86" as AnyObject?
+        conf["ss_address"] = "167.216.200.86" as AnyObject?  // 67.216.200.86
         conf["ss_port"] = 9001 as AnyObject?
         conf["ss_method"] = "AES256CFB" as AnyObject? // 大写 没有横杠 看Extension中的枚举类设定 否则引发fatal error
         conf["ss_password"] = "OWNiZTUxYW" as AnyObject?

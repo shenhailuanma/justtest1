@@ -25,6 +25,7 @@
 		0970F9371DE0039F003391DF /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970F9361DE0039F003391DF /* UIView+CornerRadius.swift */; };
 		09A5AD2D1DE0573A00272F7C /* NEKitRule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 09A5AD2C1DE0573A00272F7C /* NEKitRule.conf */; };
 		09E3FB5B1DF859E0001DE158 /* Resolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E3FB5A1DF859E0001DE158 /* Resolver.framework */; };
+		34A9C66320C2FA280057A59C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A9C66220C2FA270057A59C /* Login.storyboard */; };
 		353C0FDC1DDF393F00A46EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C0FDB1DDF393F00A46EBD /* AppDelegate.swift */; };
 		353C0FDE1DDF393F00A46EBD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C0FDD1DDF393F00A46EBD /* HomeViewController.swift */; };
 		353C0FE11DDF393F00A46EBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353C0FDF1DDF393F00A46EBD /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		0970F9361DE0039F003391DF /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+CornerRadius.swift"; path = "Extends/UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		09A5AD2C1DE0573A00272F7C /* NEKitRule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NEKitRule.conf; path = "Supporting Files/NEKitRule.conf"; sourceTree = "<group>"; };
 		09E3FB5A1DF859E0001DE158 /* Resolver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Resolver.framework; path = Carthage/Build/iOS/Resolver.framework; sourceTree = "<group>"; };
+		34A9C66220C2FA270057A59C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		353C0FD81DDF393F00A46EBD /* rabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		353C0FDB1DDF393F00A46EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		353C0FDD1DDF393F00A46EBD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				353C0FDF1DDF393F00A46EBD /* Main.storyboard */,
 				353C0FE41DDF393F00A46EBD /* LaunchScreen.storyboard */,
+				34A9C66220C2FA270057A59C /* Login.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				353C0FE61DDF393F00A46EBD /* LaunchScreen.storyboard in Resources */,
 				09A5AD2D1DE0573A00272F7C /* NEKitRule.conf in Resources */,
 				353C0FE31DDF393F00A46EBD /* Assets.xcassets in Resources */,
+				34A9C66320C2FA280057A59C /* Login.storyboard in Resources */,
 				353C0FE11DDF393F00A46EBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
