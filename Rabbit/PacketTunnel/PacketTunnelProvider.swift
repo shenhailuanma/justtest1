@@ -161,27 +161,28 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8")
         networkSettings.mtu = 1500
         
-        let ipv4Settings = NEIPv4Settings(addresses: ["192.169.89.1"], subnetMasks: ["255.255.255.0"])
+        let ipv4Settings = NEIPv4Settings(addresses: ["192.168.1.11"], subnetMasks: ["255.255.255.0"])
         
-        if enablePacketProcessing {
-            NSLog("enablePacketProcessing is ture.")
-        } else {
-            NSLog("enablePacketProcessing is false.")
-        }
+//        if enablePacketProcessing {
+//            NSLog("enablePacketProcessing is ture.")
+//        } else {
+//            NSLog("enablePacketProcessing is false.")
+//        }
         
-        if enablePacketProcessing {
-            ipv4Settings.includedRoutes = [NEIPv4Route.default()]
-            ipv4Settings.excludedRoutes = [
-                NEIPv4Route(destinationAddress: "10.0.0.0", subnetMask: "255.0.0.0"),
-                NEIPv4Route(destinationAddress: "100.64.0.0", subnetMask: "255.192.0.0"),
-                NEIPv4Route(destinationAddress: "127.0.0.0", subnetMask: "255.0.0.0"),
-                NEIPv4Route(destinationAddress: "169.254.0.0", subnetMask: "255.255.0.0"),
-                NEIPv4Route(destinationAddress: "172.16.0.0", subnetMask: "255.240.0.0"),
-                NEIPv4Route(destinationAddress: "192.168.0.0", subnetMask: "255.255.0.0"),
-                NEIPv4Route(destinationAddress: "17.0.0.0", subnetMask: "255.0.0.0"),
-
-            ]
-        }
+//        if enablePacketProcessing {
+//            ipv4Settings.includedRoutes = [NEIPv4Route.default()]
+//            ipv4Settings.excludedRoutes = [
+//                NEIPv4Route(destinationAddress: "10.0.0.0", subnetMask: "255.0.0.0"),
+//                NEIPv4Route(destinationAddress: "100.64.0.0", subnetMask: "255.192.0.0"),
+//                NEIPv4Route(destinationAddress: "127.0.0.0", subnetMask: "255.0.0.0"),
+//                NEIPv4Route(destinationAddress: "169.254.0.0", subnetMask: "255.255.0.0"),
+//                NEIPv4Route(destinationAddress: "172.16.0.0", subnetMask: "255.240.0.0"),
+//                NEIPv4Route(destinationAddress: "192.168.0.0", subnetMask: "255.255.0.0"),
+//                NEIPv4Route(destinationAddress: "17.0.0.0", subnetMask: "255.0.0.0"),
+//
+//            ]
+//        }
+        
         networkSettings.iPv4Settings = ipv4Settings
         
         let proxySettings = NEProxySettings()
@@ -192,15 +193,15 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         proxySettings.excludeSimpleHostnames = true
         // This will match all domains
         proxySettings.matchDomains = [""]
-        proxySettings.exceptionList = ["api.smoot.apple.com","configuration.apple.com","xp.apple.com","smp-device-content.apple.com","guzzoni.apple.com","captive.apple.com","*.ess.apple.com","*.push.apple.com","*.push-apple.com.akadns.net"]
+        proxySettings.exceptionList = [""]
         networkSettings.proxySettings = proxySettings
         
-        if enablePacketProcessing {
-            let DNSSettings = NEDNSSettings(servers: ["198.18.0.1"])
-            DNSSettings.matchDomains = [""]
-            DNSSettings.matchDomainsNoSearch = false
-            networkSettings.dnsSettings = DNSSettings
-        }
+//        if enablePacketProcessing {
+//            let DNSSettings = NEDNSSettings(servers: ["198.18.0.1"])
+//            DNSSettings.matchDomains = [""]
+//            DNSSettings.matchDomainsNoSearch = false
+//            networkSettings.dnsSettings = DNSSettings
+//        }
         
         setTunnelNetworkSettings(networkSettings) {
             error in
@@ -223,31 +224,31 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             completionHandler(nil)
             
             
-            if self.enablePacketProcessing {
-                if self.started{
-                    self.interface.stop()
-                }
-                
-                self.interface = TUNInterface(packetFlow: self.packetFlow)
-                
-                
-                let fakeIPPool = try! IPPool(range: IPRange(startIP: IPAddress(fromString: "198.18.1.1")!, endIP: IPAddress(fromString: "198.18.255.255")!))
-                
-                
-                let dnsServer = DNSServer(address: IPAddress(fromString: "198.18.0.1")!, port: NEKit.Port(port: 53), fakeIPPool: fakeIPPool)
-                let resolver = UDPDNSResolver(address: IPAddress(fromString: "114.114.114.114")!, port: NEKit.Port(port: 53))
-                dnsServer.registerResolver(resolver)
-                self.interface.register(stack: dnsServer)
-                
-                DNSServer.currentServer = dnsServer
-                
-                let udpStack = UDPDirectStack()
-                self.interface.register(stack: udpStack)
-                let tcpStack = TCPStack.stack
-                tcpStack.proxyServer = self.proxyServer
-                self.interface.register(stack:tcpStack)
-                self.interface.start()
-            }
+//            if self.enablePacketProcessing {
+//                if self.started{
+//                    self.interface.stop()
+//                }
+//
+//                self.interface = TUNInterface(packetFlow: self.packetFlow)
+//
+//
+//                let fakeIPPool = try! IPPool(range: IPRange(startIP: IPAddress(fromString: "198.18.1.1")!, endIP: IPAddress(fromString: "198.18.255.255")!))
+//
+//
+//                let dnsServer = DNSServer(address: IPAddress(fromString: "198.18.0.1")!, port: NEKit.Port(port: 53), fakeIPPool: fakeIPPool)
+//                let resolver = UDPDNSResolver(address: IPAddress(fromString: "114.114.114.114")!, port: NEKit.Port(port: 53))
+//                dnsServer.registerResolver(resolver)
+//                self.interface.register(stack: dnsServer)
+//
+//                DNSServer.currentServer = dnsServer
+//
+//                let udpStack = UDPDirectStack()
+//                self.interface.register(stack: udpStack)
+//                let tcpStack = TCPStack.stack
+//                tcpStack.proxyServer = self.proxyServer
+//                self.interface.register(stack:tcpStack)
+//                self.interface.start()
+//            }
             self.started = true
 
         }
@@ -257,11 +258,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
 
 	override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
-        if enablePacketProcessing {
-            interface.stop()
-            interface = nil
-            DNSServer.currentServer = nil
-        }
+//        if enablePacketProcessing {
+//            interface.stop()
+//            interface = nil
+//            DNSServer.currentServer = nil
+//        }
         
         if(proxyServer != nil){
             proxyServer.stop()
