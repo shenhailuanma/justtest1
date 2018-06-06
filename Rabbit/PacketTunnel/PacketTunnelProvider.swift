@@ -10,8 +10,10 @@ import NetworkExtension
 import NEKit
 import CocoaLumberjackSwift
 import Yaml
+import SimpleTunnelServices
 
-class PacketTunnelProvider: NEPacketTunnelProvider {
+class PacketTunnelProvider: NEPacketTunnelProvider , TunnelDelegate{
+    
     
     var interface: TUNInterface!
     var enablePacketProcessing = false
@@ -23,8 +25,28 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     var lastPath:NWPath?
     
     var started:Bool = false
+    
+    /// A reference to the tunnel object.
+    var tunnel: ClientTunnel?
+    
 
 	override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
+        
+//        let newTunnel = ClientTunnel()
+//        newTunnel.delegate = self
+//
+//        if let error = newTunnel.startTunnel(self) {
+//            NSLog("startTunnel error")
+////            completionHandler(error as NSError)
+//        }
+//        else {
+//            // Save the completion handler for when the tunnel is fully established.
+////            pendingStartCompletion = completionHandler
+//            tunnel = newTunnel
+//        }
+        
+        ////////////////==============
+        
         DDLog.removeAllLoggers()
         DDLog.add(DDASLLogger.sharedInstance, with: DDLogLevel.info)
         ObserverFactory.currentFactory = DebugObserverFactory()
@@ -161,7 +183,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8")
         networkSettings.mtu = 1500
         
-        let ipv4Settings = NEIPv4Settings(addresses: ["192.168.1.11"], subnetMasks: ["255.255.255.0"])
+        let ipv4Settings = NEIPv4Settings(addresses: ["192.168.218.116"], subnetMasks: ["255.255.255.0"])
         
 //        if enablePacketProcessing {
 //            NSLog("enablePacketProcessing is ture.")
@@ -213,10 +235,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             
             
             if !self.started{
+                NSLog("to start new proxyServer")
                 self.proxyServer = GCDHTTPProxyServer(address: IPAddress(fromString: "127.0.0.1"), port: NEKit.Port(port: UInt16(self.proxyPort)))
+                
                 try! self.proxyServer.start()
                 self.addObserver(self, forKeyPath: "defaultPath", options: .initial, context: nil)
+//                self.addObserver(self, forKeyPath: "state", options: .initial, context: nil)
             }else{
+                NSLog("to restart proxyServer")
                 self.proxyServer.stop()
                 try! self.proxyServer.start()
             }
@@ -264,18 +290,25 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 //            DNSServer.currentServer = nil
 //        }
         
+        NSLog("====== stopTunnel start ======")
+        
+        self.started = false
+        
         if(proxyServer != nil){
             proxyServer.stop()
             proxyServer = nil
-            RawSocketFactory.TunnelProvider = nil
+//            RawSocketFactory.TunnelProvider = nil
         }
         completionHandler()
         
-        exit(EXIT_SUCCESS)
+        NSLog("====== stopTunnel over ======")
+//        exit(EXIT_SUCCESS)
 	}
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "defaultPath" {
+            NSLog("received observeValue change notifcation, defaultPath changed")
+            
             if self.defaultPath?.status == .satisfied && self.defaultPath != lastPath{
                 if(lastPath == nil){
                     lastPath = self.defaultPath
@@ -292,5 +325,26 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }
         
     }
+    
+    
+    // MARK: TunnelDelegate
+    
+    /// Handle the event of the tunnel connection being established.
+    func tunnelDidOpen(_ targetTunnel: SimpleTunnelServices.Tunnel) {
+        // Open the logical flow of packets through the tunnel.
+        NSLog("zxzx tunnelDidOpen")
+        
+    }
+    
+    /// Handle the event of the tunnel connection being closed.
+    func tunnelDidClose(_ targetTunnel: SimpleTunnelServices.Tunnel) {
+        NSLog("zxzx tunnelDidClose")
+        
+    }
+    
+    func tunnelDidSendConfiguration(_ targetTunnel: SimpleTunnelServices.Tunnel, configuration: [String : AnyObject]) {
+        NSLog("zxzx tunnelDidSendConfiguration")
+    }
+
 
 }

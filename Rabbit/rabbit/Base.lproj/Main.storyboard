@@ -80,7 +80,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cHZ-oe-cdt" kind="relationship" relationship="viewControllers" id="YQH-e5-cHt"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="PQf-UV-wtm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPL-vk-UHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,7 +90,7 @@
         <!--LoginController-->
         <scene sceneID="qke-Wl-NmG">
             <objects>
-                <viewController id="cHZ-oe-cdt" userLabel="LoginController" sceneMemberID="viewController">
+                <viewController id="cHZ-oe-cdt" userLabel="LoginController" customClass="LoginViewController" customModule="rabbit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tOh-zC-KPz"/>
                         <viewControllerLayoutGuide type="bottom" id="wbj-h9-7ef"/>
@@ -114,14 +114,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvw-e4-Czm">
-                                <rect key="frame" x="173" y="416" width="31" height="30"/>
+                                <rect key="frame" x="157" y="416" width="47" height="6"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="cHZ-oe-cdt" eventType="touchUpInside" id="qZQ-5N-wGv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="ujp-Rs-dd9"/>
+                    <connections>
+                        <outlet property="btLogin" destination="Mvw-e4-Czm" id="c1a-1h-diY"/>
+                        <outlet property="tfPassword" destination="3mn-YW-JcT" id="NbW-kK-1yP"/>
+                        <outlet property="tfUsername" destination="3fQ-E9-D7d" id="OqY-VF-dpX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8z-Re-cuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
