@@ -1,1 +1,2 @@
 git "https://github.com/zhuhaow/NEKit" "master"
+github "daltoniam/SwiftHTTP" >= 3.0.1

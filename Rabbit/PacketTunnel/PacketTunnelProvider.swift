@@ -183,7 +183,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider , TunnelDelegate{
         let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8")
         networkSettings.mtu = 1500
         
-        let ipv4Settings = NEIPv4Settings(addresses: ["192.168.218.116"], subnetMasks: ["255.255.255.0"])
+        let ipv4Settings = NEIPv4Settings(addresses: ["192.168.218.119"], subnetMasks: ["255.255.255.0"])
         
 //        if enablePacketProcessing {
 //            NSLog("enablePacketProcessing is ture.")

@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var loginManager = LoginManager()
+        loginManager.login()
     }
     
     override func viewWillAppear(_ animated: Bool) {

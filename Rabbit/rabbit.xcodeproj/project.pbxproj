@@ -25,6 +25,9 @@
 		0970F9371DE0039F003391DF /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970F9361DE0039F003391DF /* UIView+CornerRadius.swift */; };
 		09A5AD2D1DE0573A00272F7C /* NEKitRule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 09A5AD2C1DE0573A00272F7C /* NEKitRule.conf */; };
 		09E3FB5B1DF859E0001DE158 /* Resolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E3FB5A1DF859E0001DE158 /* Resolver.framework */; };
+		3425BBCA20C933EE005BD36B /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425BBC920C933EE005BD36B /* LoginManager.swift */; };
+		3425BBCF20C938E9005BD36B /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3425BBCB20C93441005BD36B /* SwiftHTTP.framework */; };
+		3425BBD020C938E9005BD36B /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3425BBCB20C93441005BD36B /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		349EB84220C4DEEB00829302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EB84120C4DEEB00829302 /* LoginViewController.swift */; };
 		349EB85520C7CC1E00829302 /* SimpleTunnelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		349EB85820C7CC1E00829302 /* SimpleTunnelServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */; };
@@ -85,6 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3425BBD020C938E9005BD36B /* SwiftHTTP.framework in Embed Frameworks */,
 				349EB85920C7CC1E00829302 /* SimpleTunnelServices.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -113,6 +117,9 @@
 		0970F9361DE0039F003391DF /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+CornerRadius.swift"; path = "Extends/UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		09A5AD2C1DE0573A00272F7C /* NEKitRule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NEKitRule.conf; path = "Supporting Files/NEKitRule.conf"; sourceTree = "<group>"; };
 		09E3FB5A1DF859E0001DE158 /* Resolver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Resolver.framework; path = Carthage/Build/iOS/Resolver.framework; sourceTree = "<group>"; };
+		3425BBC920C933EE005BD36B /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		3425BBCB20C93441005BD36B /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = Carthage/Build/iOS/SwiftHTTP.framework; sourceTree = "<group>"; };
+		3425BBCD20C9373D005BD36B /* SwiftHTTP.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftHTTP.framework.dSYM; path = Carthage/Build/iOS/SwiftHTTP.framework.dSYM; sourceTree = "<group>"; };
 		349EB84120C4DEEB00829302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleTunnelServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTunnelServices.h; sourceTree = "<group>"; };
@@ -161,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3425BBCF20C938E9005BD36B /* SwiftHTTP.framework in Frameworks */,
 				349EB85820C7CC1E00829302 /* SimpleTunnelServices.framework in Frameworks */,
 				09549AD01DDF3C2F000F198C /* NetworkExtension.framework in Frameworks */,
 			);
@@ -173,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				0921EE2D1DDFE986006955C6 /* VpnManager.swift */,
+				3425BBC920C933EE005BD36B /* LoginManager.swift */,
 			);
 			name = "Model Manager";
 			sourceTree = "<group>";
@@ -235,6 +244,8 @@
 		09549ACD1DDF3C0E000F198C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3425BBCD20C9373D005BD36B /* SwiftHTTP.framework.dSYM */,
+				3425BBCB20C93441005BD36B /* SwiftHTTP.framework */,
 				09E3FB5A1DF859E0001DE158 /* Resolver.framework */,
 				09549AD21DDF406B000F198C /* CocoaAsyncSocket.framework */,
 				09549AD31DDF406B000F198C /* CocoaLumberjack.framework */,
@@ -524,6 +535,7 @@
 			files = (
 				349EB84220C4DEEB00829302 /* LoginViewController.swift in Sources */,
 				0921EE341DDFF8F6006955C6 /* Notifications.swift in Sources */,
+				3425BBCA20C933EE005BD36B /* LoginManager.swift in Sources */,
 				353C0FDE1DDF393F00A46EBD /* HomeViewController.swift in Sources */,
 				353C0FDC1DDF393F00A46EBD /* AppDelegate.swift in Sources */,
 				0921EE2E1DDFE986006955C6 /* VpnManager.swift in Sources */,
@@ -801,6 +813,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RNX29B3ME4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = rabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zx.rabbit;
@@ -820,6 +836,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RNX29B3ME4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = rabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zx.rabbit;
