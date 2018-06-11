@@ -28,6 +28,9 @@
 		3425BBCA20C933EE005BD36B /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425BBC920C933EE005BD36B /* LoginManager.swift */; };
 		3425BBCF20C938E9005BD36B /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3425BBCB20C93441005BD36B /* SwiftHTTP.framework */; };
 		3425BBD020C938E9005BD36B /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3425BBCB20C93441005BD36B /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3438D42320CC32FA00930495 /* ConfigureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42220CC32FA00930495 /* ConfigureController.swift */; };
+		3438D42520CECB1900930495 /* ConfigureManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42420CECB1900930495 /* ConfigureManger.swift */; };
+		3438D42B20CED2FB00930495 /* configures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42920CED2FA00930495 /* configures.xcdatamodeld */; };
 		349EB84220C4DEEB00829302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EB84120C4DEEB00829302 /* LoginViewController.swift */; };
 		349EB85520C7CC1E00829302 /* SimpleTunnelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		349EB85820C7CC1E00829302 /* SimpleTunnelServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */; };
@@ -120,6 +123,9 @@
 		3425BBC920C933EE005BD36B /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3425BBCB20C93441005BD36B /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = Carthage/Build/iOS/SwiftHTTP.framework; sourceTree = "<group>"; };
 		3425BBCD20C9373D005BD36B /* SwiftHTTP.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftHTTP.framework.dSYM; path = Carthage/Build/iOS/SwiftHTTP.framework.dSYM; sourceTree = "<group>"; };
+		3438D42220CC32FA00930495 /* ConfigureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureController.swift; sourceTree = "<group>"; };
+		3438D42420CECB1900930495 /* ConfigureManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureManger.swift; sourceTree = "<group>"; };
+		3438D42A20CED2FA00930495 /* configures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = configures.xcdatamodel; sourceTree = "<group>"; };
 		349EB84120C4DEEB00829302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleTunnelServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTunnelServices.h; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 			children = (
 				0921EE2D1DDFE986006955C6 /* VpnManager.swift */,
 				3425BBC920C933EE005BD36B /* LoginManager.swift */,
+				3438D42420CECB1900930495 /* ConfigureManger.swift */,
 			);
 			name = "Model Manager";
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 			children = (
 				353C0FDD1DDF393F00A46EBD /* HomeViewController.swift */,
 				349EB84120C4DEEB00829302 /* LoginViewController.swift */,
+				3438D42220CC32FA00930495 /* ConfigureController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 		353C0FDA1DDF393F00A46EBD /* rabbit */ = {
 			isa = PBXGroup;
 			children = (
+				3438D42920CED2FA00930495 /* configures.xcdatamodeld */,
 				353C0FDB1DDF393F00A46EBD /* AppDelegate.swift */,
 				0921EE2C1DDFE942006955C6 /* Model Manager */,
 				0921EE301DDFF5D4006955C6 /* Controller */,
@@ -535,7 +544,10 @@
 			files = (
 				349EB84220C4DEEB00829302 /* LoginViewController.swift in Sources */,
 				0921EE341DDFF8F6006955C6 /* Notifications.swift in Sources */,
+				3438D42320CC32FA00930495 /* ConfigureController.swift in Sources */,
 				3425BBCA20C933EE005BD36B /* LoginManager.swift in Sources */,
+				3438D42B20CED2FB00930495 /* configures.xcdatamodeld in Sources */,
+				3438D42520CECB1900930495 /* ConfigureManger.swift in Sources */,
 				353C0FDE1DDF393F00A46EBD /* HomeViewController.swift in Sources */,
 				353C0FDC1DDF393F00A46EBD /* AppDelegate.swift in Sources */,
 				0921EE2E1DDFE986006955C6 /* VpnManager.swift in Sources */,
@@ -889,6 +901,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3438D42920CED2FA00930495 /* configures.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3438D42A20CED2FA00930495 /* configures.xcdatamodel */,
+			);
+			currentVersion = 3438D42A20CED2FA00930495 /* configures.xcdatamodel */;
+			path = configures.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 353C0FD01DDF393F00A46EBD /* Project object */;
 }

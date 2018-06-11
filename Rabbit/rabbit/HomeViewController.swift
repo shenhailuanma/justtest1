@@ -13,6 +13,7 @@ import NetworkExtension
 class HomeViewController: UIViewController {
     
     @IBOutlet var connectButton: UIButton!
+    @IBOutlet var addButton: UIButton!
     
     
     var status: VPNStatus {
