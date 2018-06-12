@@ -11,8 +11,6 @@
 		0921EE341DDFF8F6006955C6 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921EE331DDFF8F6006955C6 /* Notifications.swift */; };
 		09549AC41DDF3B4A000F198C /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09549AC31DDF3B4A000F198C /* PacketTunnelProvider.swift */; };
 		09549AC81DDF3B4A000F198C /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 09549ABF1DDF3B49000F198C /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		09549ACF1DDF3C0E000F198C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09549ACE1DDF3C0E000F198C /* NetworkExtension.framework */; };
-		09549AD01DDF3C2F000F198C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09549ACE1DDF3C0E000F198C /* NetworkExtension.framework */; };
 		09549ADC1DDF406B000F198C /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09549AD21DDF406B000F198C /* CocoaAsyncSocket.framework */; };
 		09549ADD1DDF406B000F198C /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09549AD31DDF406B000F198C /* CocoaLumberjack.framework */; };
 		09549ADE1DDF406B000F198C /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09549AD41DDF406B000F198C /* CocoaLumberjackSwift.framework */; };
@@ -31,6 +29,8 @@
 		3438D42320CC32FA00930495 /* ConfigureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42220CC32FA00930495 /* ConfigureController.swift */; };
 		3438D42520CECB1900930495 /* ConfigureManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42420CECB1900930495 /* ConfigureManger.swift */; };
 		3438D42B20CED2FB00930495 /* configures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3438D42920CED2FA00930495 /* configures.xcdatamodeld */; };
+		34477E3920CFEAD400892FD6 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34477E3820CFEAD400892FD6 /* NetworkExtension.framework */; };
+		346FAE6520CFEB1400F12221 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34477E3820CFEAD400892FD6 /* NetworkExtension.framework */; };
 		349EB84220C4DEEB00829302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EB84120C4DEEB00829302 /* LoginViewController.swift */; };
 		349EB85520C7CC1E00829302 /* SimpleTunnelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		349EB85820C7CC1E00829302 /* SimpleTunnelServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */; };
@@ -106,7 +106,6 @@
 		09549AC21DDF3B4A000F198C /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
 		09549AC31DDF3B4A000F198C /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		09549AC51DDF3B4A000F198C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09549ACE1DDF3C0E000F198C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		09549AD11DDF3C30000F198C /* rabbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = rabbit.entitlements; sourceTree = "<group>"; };
 		09549AD21DDF406B000F198C /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		09549AD31DDF406B000F198C /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		3438D42220CC32FA00930495 /* ConfigureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureController.swift; sourceTree = "<group>"; };
 		3438D42420CECB1900930495 /* ConfigureManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureManger.swift; sourceTree = "<group>"; };
 		3438D42A20CED2FA00930495 /* configures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = configures.xcdatamodel; sourceTree = "<group>"; };
+		34477E3820CFEAD400892FD6 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		349EB84120C4DEEB00829302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		349EB85120C7CC1E00829302 /* SimpleTunnelServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleTunnelServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EB85320C7CC1E00829302 /* SimpleTunnelServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTunnelServices.h; sourceTree = "<group>"; };
@@ -149,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349EB86420C7D2F100829302 /* SimpleTunnelServices.framework in Frameworks */,
+				346FAE6520CFEB1400F12221 /* NetworkExtension.framework in Frameworks */,
 				09E3FB5B1DF859E0001DE158 /* Resolver.framework in Frameworks */,
 				09549ADC1DDF406B000F198C /* CocoaAsyncSocket.framework in Frameworks */,
 				09549ADD1DDF406B000F198C /* CocoaLumberjack.framework in Frameworks */,
@@ -159,7 +160,6 @@
 				09549AE31DDF406B000F198C /* Sodium.framework in Frameworks */,
 				09549AE41DDF406B000F198C /* tun2socks.framework in Frameworks */,
 				09549AE51DDF406B000F198C /* Yaml.framework in Frameworks */,
-				09549ACF1DDF3C0E000F198C /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3425BBCF20C938E9005BD36B /* SwiftHTTP.framework in Frameworks */,
+				34477E3920CFEAD400892FD6 /* NetworkExtension.framework in Frameworks */,
 				349EB85820C7CC1E00829302 /* SimpleTunnelServices.framework in Frameworks */,
-				09549AD01DDF3C2F000F198C /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +252,7 @@
 		09549ACD1DDF3C0E000F198C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34477E3820CFEAD400892FD6 /* NetworkExtension.framework */,
 				3425BBCD20C9373D005BD36B /* SwiftHTTP.framework.dSYM */,
 				3425BBCB20C93441005BD36B /* SwiftHTTP.framework */,
 				09E3FB5A1DF859E0001DE158 /* Resolver.framework */,
@@ -264,7 +265,6 @@
 				09549AD91DDF406B000F198C /* Sodium.framework */,
 				09549ADA1DDF406B000F198C /* tun2socks.framework */,
 				09549ADB1DDF406B000F198C /* Yaml.framework */,
-				09549ACE1DDF3C0E000F198C /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 				353C0FD41DDF393F00A46EBD /* Sources */,
 				353C0FD51DDF393F00A46EBD /* Frameworks */,
 				353C0FD61DDF393F00A46EBD /* Resources */,
-				091B62221EDA7F3100FA4D92 /* ShellScript */,
+				091B62221EDA7F3100FA4D92 /* Run Script */,
 				09549ACC1DDF3B4A000F198C /* Embed App Extensions */,
 				349EB85D20C7CC1E00829302 /* Embed Frameworks */,
 			);
@@ -417,6 +417,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
 							com.apple.VPNLite = {
 								enabled = 1;
 							};
@@ -435,6 +438,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.iOS = {
 								enabled = 1;
 							};
 							com.apple.VPNLite = {
@@ -493,7 +499,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		091B62221EDA7F3100FA4D92 /* ShellScript */ = {
+		091B62221EDA7F3100FA4D92 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,6 +516,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Yaml.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Resolver.framework",
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

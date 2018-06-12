@@ -97,7 +97,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider , TunnelDelegate{
         
         let httpAuth = HTTPAuthentication(username: "shenhailuanma0512@163.com", password: "zx@19861008")
         let httpAdapterFactory = SecureHTTPAdapterFactory(serverHost: "pac.stalker.cc", serverPort: 9008, auth: httpAuth)
-       
+      
         
         let directAdapterFactory = DirectAdapterFactory()
         
