@@ -23,6 +23,7 @@
 		04EA46132064C9B7002578AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EA46112064C9B7002578AF /* LaunchScreen.storyboard */; };
 		04EA46362064D10E002578AF /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA46352064D10E002578AF /* PacketTunnelProvider.swift */; };
 		04EA463B2064D10E002578AF /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04EA46332064D10E002578AF /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		34FF23A620D00F4600FA5D9F /* HttpsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FF23A520D00F4600FA5D9F /* HttpsProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		04EA46372064D10E002578AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04EA46382064D10E002578AF /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
 		04F368CB2074C31A00CA8B34 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		34FF23A520D00F4600FA5D9F /* HttpsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpsProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				0445F9AE20676962003993A3 /* Shadowsocks.swift */,
 				04EA46372064D10E002578AF /* Info.plist */,
 				04EA46382064D10E002578AF /* PacketTunnel.entitlements */,
+				34FF23A520D00F4600FA5D9F /* HttpsProxy.swift */,
 			);
 			path = PacketTunnel;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			files = (
 				04EA46362064D10E002578AF /* PacketTunnelProvider.swift in Sources */,
 				0445F9AF20676962003993A3 /* Shadowsocks.swift in Sources */,
+				34FF23A620D00F4600FA5D9F /* HttpsProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

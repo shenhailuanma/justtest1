@@ -17,6 +17,7 @@ class Shadowsocks {
 	let method: String
 
 	private let socks5ProxyServer: GCDSOCKS5ProxyServer
+    private let proxyServer: GCDHTTPProxyServer
 
 	init(serverAddress: String, serverPort: UInt16, localAddress: String, localPort: UInt16, password: String, method: String) {
 		self.serverAddress = serverAddress
@@ -27,6 +28,9 @@ class Shadowsocks {
 		self.method = method
 
 		socks5ProxyServer = GCDSOCKS5ProxyServer(address: IPAddress(fromString: localAddress), port: NEKit.Port(port: localPort))
+        
+        proxyServer = GCDHTTPProxyServer(address: IPAddress(fromString: localAddress), port: NEKit.Port(port: 9001))
+        
 
 		let cryptoAlgorithm: CryptoAlgorithm
 		switch method {
@@ -44,27 +48,41 @@ class Shadowsocks {
 			cryptoAlgorithm = .AES256CFB
 		}
 
-		RuleManager.currentManager = RuleManager(
-			fromRules: [
-				AllRule(
-					adapterFactory: ShadowsocksAdapterFactory(
-						serverHost: serverAddress,
-						serverPort: Int(serverPort),
-						protocolObfuscaterFactory: ShadowsocksAdapter.ProtocolObfuscater.OriginProtocolObfuscater.Factory(),
-						cryptorFactory: ShadowsocksAdapter.CryptoStreamProcessor.Factory(password: password, algorithm: cryptoAlgorithm),
-						streamObfuscaterFactory: ShadowsocksAdapter.StreamObfuscater.OriginStreamObfuscater.Factory()
-					)
-				),
-			],
-			appendDirect: true
-		)
+        let ssAdapterFactory = ShadowsocksAdapterFactory(
+            serverHost: serverAddress,
+            serverPort: Int(serverPort),
+            protocolObfuscaterFactory: ShadowsocksAdapter.ProtocolObfuscater.OriginProtocolObfuscater.Factory(),
+            cryptorFactory: ShadowsocksAdapter.CryptoStreamProcessor.Factory(password: password, algorithm: cryptoAlgorithm),
+            streamObfuscaterFactory: ShadowsocksAdapter.StreamObfuscater.OriginStreamObfuscater.Factory()
+        )
+        
+//        let httpAuth = HTTPAuthentication(username: "shenhailuanma0512@163.com", password: "zx@19861008")
+//        let httpAdapterFactory = SecureHTTPAdapterFactory(serverHost: "pac.stalker.cc", serverPort: 9008, auth: httpAuth)
+        
+//        RuleManager.currentManager = RuleManager(
+//            fromRules: [
+//                AllRule(adapterFactory: httpAdapterFactory),
+//                ],
+//            appendDirect: true
+//        )
+        
+        RuleManager.currentManager = RuleManager(
+            fromRules: [
+                AllRule(
+                    adapterFactory: ssAdapterFactory
+                ),
+            ],
+            appendDirect: true
+        )
 	}
 
 	func start() throws {
-		try socks5ProxyServer.start()
+        try socks5ProxyServer.start()
+//        try proxyServer.start()
 	}
 
 	func stop() {
-		socks5ProxyServer.stop()
+        socks5ProxyServer.stop()
+//        proxyServer.stop()
 	}
 }

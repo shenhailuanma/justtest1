@@ -29,12 +29,20 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 		}
 
 		let proxySettings = NEProxySettings()
-		proxySettings.autoProxyConfigurationEnabled = true
-		if generalPACMaxAge == 0 {
-			proxySettings.proxyAutoConfigurationURL = generalPACURL
-		} else {
-			proxySettings.proxyAutoConfigurationJavaScript = generalPAC
-		}
+//        proxySettings.autoProxyConfigurationEnabled = true
+//        if generalPACMaxAge == 0 {
+//            proxySettings.proxyAutoConfigurationURL = generalPACURL
+//        } else {
+//            proxySettings.proxyAutoConfigurationJavaScript = generalPAC
+//        }
+        proxySettings.autoProxyConfigurationEnabled = true
+        proxySettings.proxyAutoConfigurationJavaScript = "function FindProxyForURL(url, host) {return \"SOCKS5 127.0.0.1:1081; SOCKS 127.0.0.1:1081\";}"
+        
+//        proxySettings.httpEnabled = true
+//        proxySettings.httpServer = NEProxyServer(address: "127.0.0.1", port: 9001)
+//        proxySettings.httpsEnabled = true
+//        proxySettings.httpsServer = NEProxyServer(address: "127.0.0.1", port: 9001)
+//
 		proxySettings.excludeSimpleHostnames = true
 		proxySettings.matchDomains = [""]
 
